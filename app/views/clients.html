@@ -1,0 +1,89 @@
+<h2>Clients</h2>
+<div class="well">
+  Filter: <input type="" ng-model="search" />
+  <div class="float-right">
+    <input id="importCSVfile" class="hidden" type="file" file-change="importCSV" /-->
+    <span class="btn" ng-click="initImportCSV()"><i class="icon-filter"></i>Import CSV</span>
+    <a id="exportCSV" href="#" class="btn" ng-click="exportCSV()" download="clients-{{cDate | date:'yyyy-MM-dd.HH.mm'}}.csv">
+      <i class="icon-share"></i>
+      Export CSV
+    </a>
+  </div>
+  <br /><hr />
+  <!--Sort by: <label><input type="radio" value="id" ng-model="cSort" /> ID</label>
+          <label><input type="radio" value="name" ng-model="cSort" /> Name</label><br /-->
+  <table class="table table-hover table-striped table-condensed">
+    <thead>
+      <tr>
+        <th ng-click="tSort('name')">Name</th>
+        <th ng-click="tSort('address')">Address</th>
+        <th ng-click="tSort('plot')">Plot#</th>
+        <th>Geo</th>
+        <th ng-click="tSort('area')">Area</th>
+        <th ng-click="tSort('phone')">Phone</th>
+        <th ng-click="tSort('town')">Town</th>
+        <th ng-click="tSort('zip')">Zip</th>
+        <th ng-click="tSort('email')">Email</th>
+        <!--th ng-click="tSort('gender')">Gender</th -->
+        <th><a href="#/clientedit"><i class="icon-plus-sign"> </i></a></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="client in clients | filter:search | orderBy:tSortCol:tSortReverse">
+        <td>{{client.name}} {{client.lastName}}</td><td>{{client.address}}</td><td>{{client.plot}}</td>
+        <td>{{client.geoLat}},{{client.geoLong}}</td><td>{{client.area}}</td><td>{{client.phone}}</td><td>{{client.city}}</td>
+        <td>{{client.zip}}</td><td>{{client.email}}</td><!--td>{{client.gender}}</td -->
+        <td><a href="#/clientedit/{{client.id}}"><i class="icon-pencil" ng-show="client.name"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div><strong>Total number: {{clients.length}}</strong></div>
+  <hr>
+  <!--pre>Local Store Clients = {{localClients | json}}</pre -->
+  <!--pre>Imported Data = {{importedData | json}}</pre -->
+  <!--rating max="5" model="starts.average">Woo</rating -->
+</div>
+
+<style type="text/css">
+  .float-right {
+    display: table;
+    float: right;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+   
+  .hero-unit {
+    font-size: 14px;
+    width: 500px;
+  }
+
+  label {
+    display: inline;
+  }
+
+  table {
+    border-collapse: separate;
+  }
+
+  th {
+    padding: 0 6px;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  th:nth-child(1) {
+    min-width: 90px;
+  }
+ 
+  td {
+    padding: 5px;
+  }
+  
+  td:nth-child(5) {
+    padding: 5px 10px;
+  }
+</style>

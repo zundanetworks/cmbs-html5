@@ -1,0 +1,96 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" ng-app="yoApp"> <!--<![endif]-->
+  <head  ng-controller="TitleCtrl">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title ng-bind-template="{{Page.title()}} | IncGreen - CMBS'">IncGreen - CMBS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+  </head>
+  <!--body ng-app="yoApp"-->
+  <body ng-cloak="">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!--div class="container title">
+      <h2>{{pageTitle}}</h2>
+      <h2>(2){{Page.title()}}</h2>
+      <!--pre>favourites = {{fvz | json}}</pre>
+    </div -->
+    
+    <div class="navbar navbar-fixed-top" ng-controller="NavbarController">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand " href="#/">
+                    <img src="img/people.png" alt="logo"> {{ appTitle }}
+                </a>
+                <ul class="nav nav-pills">
+                    <li ng-class="{'active':highlight('/clients')}"><a href="#/clients">Clients</a></li>
+                    <li ng-class="{'active':highlight('/clientedit')}"><a href="#/clientedit">Add Client</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container slide-animation" ng-view=""></div>
+
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-alert.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-dropdown.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-tooltip.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-modal.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-transition.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-button.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-popover.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-typeahead.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-carousel.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-scrollspy.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-collapse.js"></script>
+        <script src="bower_components/bootstrap-sass/js/bootstrap-tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/modules.js -->
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/services/television.js"></script>
+        <script src="scripts/controllers/favourites.js"></script>
+        <script src="scripts/controllers/kuform.js"></script>
+        <script src="scripts/controllers/kuform2.js"></script>
+        <script src="scripts/controllers/favourite.js"></script>
+        <script src="scripts/controllers/title.js"></script>
+        <script src="scripts/controllers/navbar.js"></script>
+        <script src="scripts/controllers/clients.js"></script>
+        <script src="scripts/controllers/client.edit.js"></script>
+        <script src="scripts/services/data-service.js"></script>
+        <script src="scripts/directives/fileChange.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
